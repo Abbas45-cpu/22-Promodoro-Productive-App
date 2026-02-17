@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pomodoro Productivity App</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body data-theme="light">
+		<main class="app">
+			<header class="app-header">
+				<div class="brand">FocusFlow</div>
+				<button class="ghost-button" id="themeToggle" aria-label="Toggle theme">
+					Toggle Theme
+				</button>
+			</header>
+
+			<section class="card timer-card">
+				<div class="mode-switch" role="tablist">
+					<button class="mode-button active" data-mode="pomodoro" role="tab">
+						Pomodoro
+					</button>
+					<button class="mode-button" data-mode="short" role="tab">Short Break</button>
+					<button class="mode-button" data-mode="long" role="tab">Long Break</button>
+				</div>
+
+				<div class="progress-wrap">
+					<svg class="progress-ring" width="240" height="240">
+						<circle class="ring-track" cx="120" cy="120" r="100"></circle>
+						<circle class="ring-progress" cx="120" cy="120" r="100"></circle>
+					</svg>
+					<div class="timer-display" id="timerDisplay">25:00</div>
+				</div>
+
+				<div class="controls">
+					<button class="primary-button" id="startButton">Start</button>
+					<button class="ghost-button" id="pauseButton" disabled>Pause</button>
+					<button class="ghost-button" id="resetButton">Reset</button>
+				</div>
+
+				<div class="session-info">
+					<div>
+						Sessions completed: <span id="sessionCount">0</span>
+					</div>
+					<button class="text-button" id="resetSessions">Reset</button>
+				</div>
+			</section>
+
+			<section class="card tasks-card">
+				<header class="card-header">
+					<h2>Tasks</h2>
+					<div class="tasks-meta">
+						Completed: <span id="completedCount">0</span>
+					</div>
+				</header>
+
+				<form class="task-form" id="taskForm">
+					<input
+						type="text"
+						id="taskInput"
+						placeholder="Add a new task..."
+						autocomplete="off"
+						required
+					/>
+					<button class="primary-button" type="submit">Add</button>
+				</form>
+
+				<ul class="task-list" id="taskList"></ul>
+			</section>
+		</main>
+
+		<script src="script.js"></script>
+	</body>
+</html>
